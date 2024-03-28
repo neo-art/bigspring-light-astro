@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Bigspring Light Astro",
-    "base_url": "https://bigspring-light-astro.vercel.app",
+    "title": "M10 Services",
+    "base_url": "http://m10.services",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
