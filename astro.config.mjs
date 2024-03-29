@@ -8,6 +8,13 @@ import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
 
+import { defineConfig } from 'astro/config';
+import storyblok from '@storyblok/astro';
+import { loadEnv } from 'vite';
+import basicSsl from '@vitejs/plugin-basic-ssl';
+
+const env = loadEnv("", process.cwd(), 'STORYBLOK');
+
 // https://astro.build/config
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
@@ -22,6 +29,22 @@ export default defineConfig({
     tailwind({
       config: {
         applyBaseStyles: false,
+      },
+    }),
+    storyblok({
+      accessToken:'8Yznvt6MLrtQG4rJDBGbuAtt',
+      bridge: true,
+      enableFallbackComponent: true,
+      components: {
+        page: 'storyblok/Page',
+        feature: 'storyblok/Feature',
+        grid: 'storyblok/Grid',
+        teaser: 'storyblok/Teaser',
+        // Add your components here
+      },
+      apiOptions: {
+        // Choose your Storyblok space region
+        region: 'eu', // optional,  or 'eu' (default)
       },
     }),
     AutoImport({
@@ -52,5 +75,11 @@ export default defineConfig({
       wrap: true,
     },
     extendDefaultPlugins: true,
+  },
+  vite: {
+    plugins: [basicSsl()],
+    server: {
+      https: true,
+    },
   },
 });
