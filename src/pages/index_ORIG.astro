@@ -7,10 +7,15 @@ import { getEntryBySlug } from "astro:content";
 
 const homepage = await getEntryBySlug("homepage", "index");
 const { banner, feature, services, workflow, call_to_action } = homepage.data;
+const { blok } = Astro.props;
 
-import { useStoryblokApi } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import { storyblokEditable } from '@storyblok/astro';
+import Teaser from "@/storyblok/Teaser.astro";
+import Page from "@/storyblok/Page.astro";
+import Feature from "@/storyblok/Feature.astro";
+import Grid from "@/storyblok/Grid.astro";
 
 // const metadata = {
 //   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
@@ -22,6 +27,7 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
   version: import.meta.env.DEV ? "draft" : "published",
 });
 const content = data.story.content;
+const teaser = Teaser;
 ---
 
 <Base>
