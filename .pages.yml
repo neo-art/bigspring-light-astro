@@ -20,10 +20,10 @@ content:
       - { name: tags, label: Tags, type: string, list: true }
       - { name: description, label: Description, type: string }
       - { name: body, label: Body, type: rich-text }
-  - name: about
-    label: About page
+  - name: faq
+    label: Faq page
     type: file
-    path: src/pages/about.md
+    path: src/pages/faq.md
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - { name: title, label: Title, type: string }
