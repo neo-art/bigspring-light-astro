@@ -23,7 +23,7 @@ content:
   - name: faq
     label: Faq page
     type: file
-    path: src/pages/faq/index.md
+    path: src/faq/index.md
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - { name: title, label: Title, type: string }
